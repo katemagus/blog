@@ -4,7 +4,7 @@ title: Security+ 优惠英文报考以及自学方法分享
 date: 2019-11-12 00:00:00 +0300
 description: Security+ 英文报考经验 # Add post description (optional)
 img: software.jpg # Add image post (optional)
-tags: [Productivity, Software] # add tag
+tags: [学习经验, 考证] # add tag
 ---
 
 作者2019年10月DIY通过security+考试。我相信大家在网络上搜索到很多软文，就是推荐各位去报考机构培训。在机构报考，至少要8000+的费用，DIY准备和报考仅仅需要两千出头的费用（跟汇率有关）。并且机构的培训良莠不齐，资质也难以保证，很多参加过培训的人应该知道，这只能算个心理安慰，其实并没什么大的帮助。不管花多少钱，学习的人都是自己，只要方向是对的，材料是对的，不需要花过多的费用在准备上。
