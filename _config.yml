@@ -6,17 +6,17 @@ description: > # this means to ignore newlines until "baseurl:"
 permalink: ':title/'
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://katemagus.github.io/blog/" # the base hostname & protocol for your site, e.g. http://example.com
-site-twitter: #if your site has a twitter account, enter it here
+#site-twitter: #if your site has a twitter account, enter it here
 
 # Author Settings
 author: 大巫师凯特 # add your name
 author-img: kate.jpg # add your photo
-about-author: A rank arrogant amateur. # add description
+about-author: A rank,arrogant amateur. # add description
 #social-twitter: # add your Twitter handle
 #social-facebook: # add your Facebook handle
 social-github: tsuus # add your Github handle
 #social-linkedin: # add your Linkedin handle
-social-email: # katjaclustter@qq.com
+social-email: katjaclustter@qq.com # katjaclustter@qq.com
 
 # Disqus
 discus-identifier: notyet # add your discus identifier
