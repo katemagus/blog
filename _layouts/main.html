@@ -15,13 +15,8 @@ layout: default
   <footer>
     <section class="contact">
       <h3 class="contact-title">Contact me</h3>
-	  <p>To avoid cyber manhunt, only github and mail address are provided</p>
+	  <p>To avoid cyber manhunt, only mail address is provided</p>
       <ul>
-        {% if site.social-github %}
-          <li class="github"><a href="http://github.com/{{site.social-github}}" target="_blank"><i class="fa fa-github"></i></a></li>
-        {% else %}
-          <li class="github"><a href="http://github.com/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-        {% endif %}
        {% if site.social-email %}
           <li class="email"><a href="mailto:{{site.social-email}}"><i class="fa fa-envelope-o"></i></a></li>
         {% else %}
