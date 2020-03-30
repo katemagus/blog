@@ -15,20 +15,16 @@ tags: [文学, 旧作]
 鱼不但有被人烹制成美味的使命，还背负着惩恶扬善的责任——听起来甚是荒谬。有些做恶事的人饱尝山珍海味，鱼怕是也吃掉许多尾，不一定都被扎成“喷泉”。“鱼判官”的假想不过是胡诌罢了。
 被鱼刺卡住的第二天早上，刚咽下一口馒头，这根刺便被送下肚去了。大概这刺影响到了我的神经系统，因为自从它脱落之后，我再也没有天马行空的瞎想。没了负担，神清气爽，当天下午便乐颠颠地跑去菜市买了五条活鱼，依旧是糖醋，摆上桌来，吃得滋滋作响。人生最大的乐事，莫过于此。
 
-## Plaid ramps kitsch woke pork belly 大号字体
+//： ## Plaid ramps kitsch woke pork belly 大号字体
 
-#![I and My friends]({{site.baseurl}}/assets/img/we-in-rest.jpg) 引用图片
-
-
-# >Hexagon shoreditch beard, man braid blue bottle green juice thundercats viral migas next level ugh. Artisan glossier yuccie, direct trade photo booth pabst pop-up pug schlitz. （quote）
+//：![I and My friends]({{site.baseurl}}/assets/img/we-in-rest.jpg) 引用照片
 
 
-#* Hexagon shoreditch beard
-#* Intelligentsia narwhal austin
-#* Literally meditation four
-#* Microdosing hoodie woke
-#list
+//：>Hexagon shoreditch beard, man braid blue bottle green juice thundercats viral migas next level ugh. Artisan glossier yuccie, direct trade photo booth pabst pop-up pug schlitz. quote格式
 
-Wayfarers lyft DIY sriracha succulents twee adaptogen crucifix gastropub actually hexagon raclette franzen polaroid la croix. Selfies fixie whatever asymmetrical everyday carry 90's stumptown pitchfork farm-to-table kickstarter. Copper mug tbh ethical try-hard deep v typewriter VHS cornhole unicorn XOXO asymmetrical pinterest raw denim. Skateboard small batch man bun polaroid neutra. Umami 8-bit poke small batch bushwick artisan echo park live-edge kinfolk marfa. Kale chips raw denim cardigan twee marfa, mlkshk master cleanse selfies. Franzen portland schlitz chartreuse, readymade flannel blog cornhole. Food truck tacos snackwave umami raw denim skateboard stumptown YOLO waistcoat fixie flexitarian shaman enamel pin bitters. Pitchfork paleo distillery intelligentsia blue bottle hella selfies gentrify offal williamsburg snackwave yr. Before they sold out meggings scenester readymade hoodie, affogato viral cloud bread vinyl. Thundercats man bun sriracha, neutra swag knausgaard jean shorts. Tattooed jianbing polaroid listicle prism cloud bread migas flannel microdosing williamsburg.
-
-Echo park try-hard irony tbh vegan pok pok. Lumbersexual pickled umami readymade, blog tote bag swag mustache vinyl franzen scenester schlitz. Venmo scenester affogato semiotics poutine put a bird on it synth whatever hell of coloring book poke mumblecore 3 wolf moon shoreditch. Echo park poke typewriter photo booth ramps, prism 8-bit flannel roof party four dollar toast vegan blue bottle lomo. Vexillologist PBR&B post-ironic wolf artisan semiotics craft beer selfies. Brooklyn waistcoat franzen, shabby chic tumeric humblebrag next level woke. Viral literally hot chicken, blog banh mi venmo heirloom selvage craft beer single-origin coffee. Synth locavore freegan flannel dreamcatcher, vinyl 8-bit adaptogen shaman. Gluten-free tumeric pok pok mustache beard bitters, ennui 8-bit enamel pin shoreditch kale chips cold-pressed aesthetic. Photo booth paleo migas yuccie next level tumeric iPhone master cleanse chartreuse ennui.
+/*： 列表
+* Hexagon shoreditch beard
+* Intelligentsia narwhal austin
+* Literally meditation four
+* Microdosing hoodie woke
+*/
