@@ -12,7 +12,7 @@ layout: main
     <p>{{ post.content | strip_html | truncate: 100 }}</p>
     <span class="post-date">{{post.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
 
-    <span class="post-words">{% assign words = content | strip_html | strip_newlines | split: "" | size %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minute read" }}{% endunless %}</span>
+    <span class="post-words">{{ page.content | strip_html | strip_newlines | remove: " " | size | divided_by: 350 | plus: 1 }} </span>
   </div>
 </article>
 {% endfor %}
