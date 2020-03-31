@@ -2,22 +2,6 @@
 layout: main
 ---
 
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  
-<script>  
-  const gitalk = new Gitalk({
-  clientID: '2b59f4d2800b2ad772f0',
-  clientSecret: '79ebe81eb29a5616fc538c9543ea427b6f4bb9b4',
-  repo: 'https://github.com/katemagus/blog',
-  owner: 'katemagus',
-  admin: ['tsuus'],
-  id: 'official',    // Ensure uniqueness and length less than 50
-  distractionFreeMode: true  // Facebook-like distraction free mode
-  })
-gitalk.render('gitalk-container')
- </script>
-  
 <article class="article-page">
   <div class="page-content">
     {% if page.img %}
@@ -50,13 +34,24 @@ gitalk.render('gitalk-container')
         </div>
       </div>
       {% include disqus.html %}
-	  
-	    
-
-  
-  <div id="gitalk-container"></div>
-	  
     </div> <!-- End Wrap Content -->
   </div> <!-- End Page Content -->
   
 </article> <!-- End Article Page -->
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  
+<script>  
+  const gitalk = new Gitalk({
+  clientID: '2b59f4d2800b2ad772f0',
+  clientSecret: '79ebe81eb29a5616fc538c9543ea427b6f4bb9b4',
+  repo: 'https://github.com/katemagus/blog',
+  owner: 'katemagus',
+  admin: ['tsuus'],
+  id: 'official',    // Ensure uniqueness and length less than 50
+  distractionFreeMode: true  // Facebook-like distraction free mode
+  })
+gitalk.render('gitalk-container')
+ </script>
+  <div id="gitalk-container"></div>
