@@ -22,7 +22,7 @@ social-email: katjaclustter@qq.com # katjaclustter@qq.com
 #discus-identifier: notyet # add your discus identifier
 
 # Tracker
-analytics: kateclustter # Google Analytics
+analytics: # Google Analytics
 
 # Build Settings
 markdown: kramdown
