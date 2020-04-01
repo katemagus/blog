@@ -1,9 +1,11 @@
-  <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+   <div id="comments"></div>
+   
+ <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <script src="{{site.baseurl}}/assets/js/Valine.min.js"></script> 
-
     <script type="text/javascript">
-    new Valine({
+	 var valine = new Valine();
+     valine.init({
         el: '#comments' ,
         verify: '{{ site.valine.verify }}',
         notify: '{{ site.valine.notify }}',
@@ -24,6 +26,5 @@
       });
     }
   </script>
-  <div id="comments"></div>
 
 
