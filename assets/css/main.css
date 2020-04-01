@@ -1483,16 +1483,30 @@ a.newer-posts:hover {
 /** leancloud */
 
 .post-meta-divider {
-  font-size: $small-font-size;
+  font-size: 12 px;
   color: $grey-color;
 }
 .post-meta-item-text {
-  font-size: $small-font-size;
-  color: $grey-color;
+  font-size: 12 px;
+  color: #263959;
 }
 .leancloud-visitors-count{
-  font-size: $small-font-size;
-  color: $grey-color;
+  font-size: 12 px;
+  color: #263959;
+}
+
+.leancloud-visitors{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #fbd702cf;
+    border: 1px solid #ecf0f1;
+    padding: 5px 10px;
+    margin-left: 5px;
+    color: #263959;
+    font-size: 12px;
+    -webkit-transition: background-color .3s;
+    -o-transition: background-color .3s;
+    transition: background-color .3s;
 }
 
 /** leancloud */
