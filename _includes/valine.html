@@ -7,10 +7,10 @@
 	 var valine = new Valine();
      valine.init({
         el: '#vcomment' ,
-        verify: '{{ site.valine.verify }}',
-        notify: '{{ site.valine.notify }}',
-        appId: '{{ site.valine.appid }}',
+		appId: '{{ site.valine.appid }}',
         appKey: '{{ site.valine.appkey }}',
+        verify: '{{ site.valine.verify }}',
+        notify: '{{ site.valine.notify }}',    
         placeholder: '{{ site.valine.placeholder }}',
         avatar:'{{ site.valine.avatar }}',
         guest_info: 'nick' ,
