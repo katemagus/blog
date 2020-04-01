@@ -33,7 +33,7 @@ valine:
   notify: false 
   verify: true 
   placeholder: 说点什么吧！ 
-  avatar: show 
+  avatar: mp 
   guest_info: nick # custom comment header
   pageSize: 10 # pagination size
    
