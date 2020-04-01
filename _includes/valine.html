@@ -3,11 +3,7 @@
   <script src="{{site.baseurl}}/assets/js/Valine.min.js"></script> 
   <div id="comments"></div>
    <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = '{{ site.valine.guest_info }}';
-    guest = guest.split(',').filter(function (item) {
-      return GUEST.indexOf(item)>-1;
-    });
+
     new Valine({
         el: '#comments' ,
         verify: {{ site.valine.verify }},
@@ -16,7 +12,7 @@
         appKey: '{{ site.valine.appkey }}',
         placeholder: '{{ site.valine.placeholder }}',
         avatar:'{{ site.valine.avatar }}',
-        guest_info:['nick'] ,
+        guest_info: 'nick' ,
         pageSize:'{{ site.valine.pageSize }}' || 10,
     });
     //增加以下六行代码去除 power by valine
