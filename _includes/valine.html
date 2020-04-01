@@ -6,14 +6,14 @@
 
     new Valine({
         el: '#comments' ,
-        verify: {{ site.valine.verify }},
-        notify: {{ site.valine.notify }},
+        verify: '{{ site.valine.verify }}',
+        notify: '{{ site.valine.notify }}',
         appId: '{{ site.valine.appid }}',
         appKey: '{{ site.valine.appkey }}',
         placeholder: '{{ site.valine.placeholder }}',
         avatar:'{{ site.valine.avatar }}',
         guest_info: 'nick' ,
-        pageSize:'{{ site.valine.pageSize }}' || 10,
+        pageSize:'{{ site.valine.pageSize }}',
     });
     //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
