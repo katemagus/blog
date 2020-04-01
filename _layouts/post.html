@@ -44,11 +44,9 @@ layout: main
       </div>
     </div> 
   
-   {% if site.valine.enable %}
-   
-   <div id="comments"></div>
-
-   {% endif %}
+{% if site.valine.enable %}  
+{% include valine.html %}
+{% endif %}
    
   </div> 
 </article>
