@@ -3,24 +3,26 @@
   <script src="{{site.baseurl}}/assets/js/Valine.min.js"></script> 
   <div id="comments"></div>
    <script type="text/javascript">
- $(function() {
-      var valine = AV.Object.extend("Valine");
-	  valine.set("el",'#comments');
-	  valine.set("verify",'{{ site.valine.verify }}');
-	  valine.set("notify",'{{ site.valine.notify }}');
-	  valine.set("placeholder",'{{ site.valine.placeholder }}');
-	  valine.set("avatar",'{{ site.valine.avatar }}');
-	  valine.set("guest_info",'nick');
-	  valine.set("pageSize",'{{ site.valine.pageSize }}');
-	  
-	    //增加以下六行代码去除 power by valine
+
+    new Valine({
+	    av: AV,
+        el: '#comments' ,
+        verify: '{{ site.valine.verify }}',
+        notify: '{{ site.valine.notify }}',
+        appId: '{{ site.valine.appid }}',
+        appKey: '{{ site.valine.appkey }}',
+        placeholder: '{{ site.valine.placeholder }}',
+        avatar:'{{ site.valine.avatar }}',
+        guest_info: 'nick' ,
+        pageSize:'{{ site.valine.pageSize }}',
+    });
+    //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {
         item.parentNode.removeChild(item);
       });
-    }  
-	  });
+    }
   </script>
 
 {% endif %}
