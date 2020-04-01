@@ -3,12 +3,7 @@
  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
     <script type="text/javascript">
-  var GUEST = ['nick', 'mail', 'link'];
-  var guest = 'nick,mail,link';
-  guest = guest.split(',').filter(function(item) {
-    return GUEST.indexOf(item) > -1;
-  });
-	 new Valine()({
+ 	 new Valine({
         el: '#comments' ,
 		appId: '{{ site.valine.appid }}',
         appKey: '{{ site.valine.appkey }}',
@@ -16,7 +11,7 @@
         notify: '{{ site.valine.notify }}',    
         placeholder: '{{ site.valine.placeholder }}',
         avatar: '{{ site.valine.avatar }}',
-		meta: guest,
+		meta: ['nick'],
         pageSize:'{{ site.valine.pageSize }}',
 		visitor: true
     });
