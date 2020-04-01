@@ -34,7 +34,9 @@ valine:
   verify: true 
   placeholder: 说点什么吧！ 
   avatar: mp 
+  meta: ['nick']
   pageSize: 10  # pagination size
+  visitor: true
 
    
 
