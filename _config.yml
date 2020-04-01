@@ -28,8 +28,8 @@ analytics: # Google Analytics
 
 valine:
   enable: true
-  appid:  FNWcm5B96Ni34JzdgGFFQNb4-gzGzoHsz
-  appkey: KyI4O2lTk7co4k2CdxGWYbI2
+  appid:  tK3KuoxHD5qNbPetXcqSOJB3-gzGzoHsz
+  appkey: bHS1jho1pkN4Lvs6jDiCULXg
   notify: false 
   verify: true 
   placeholder: 说点什么吧！ 
