@@ -35,13 +35,13 @@ valine:
   enable: true
   appid:  tK3KuoxHD5qNbPetXcqSOJB3-gzGzoHsz
   appkey: bHS1jho1pkN4Lvs6jDiCULXg
-  notify: false # mail notifier , https://github.com/xCss/Valine/wiki 是否开启邮箱提醒
-  verify: true # Verification code   是否开启验证码
-  placeholder: Just go go # comment box placeholder
-  avatar: mm # avatar style
-  guest_info: nick,mail,link # custom comment header
-  pageSize: 10 # pagination size  
-  
+  notify: false 
+  verify: true 
+  placeholder: 说点什么吧！ 
+  avatar: show 
+  guest_info: nick # custom comment header
+  pageSize: 10 # pagination size
+   
 
 # Build Settings
 markdown: kramdown
