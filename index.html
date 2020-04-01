@@ -11,7 +11,7 @@ layout: main
     <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
 	
 
-        <span id="{{ post.url }}" class="leancloud_visitors" data-flag-title="{{ post.title }}">
+        <span id="/blog{{ post.url }}" class="leancloud_visitors" data-flag-title="{{ post.title }}">
           <span class="post-meta-item-text"> Hits:  </span>
          <span class="leancloud-visitors-count"></span>
         </span>
@@ -27,6 +27,6 @@ layout: main
 {% endfor %}
 
 
-  {% include valine.html %}
+{% include valine.html %}
 
 {% include pagination.html %}
