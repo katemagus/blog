@@ -1,8 +1,8 @@
-{% if site.valine.enable %}
- 
-  <div id="comments"></div>
-   <script type="text/javascript">
+  <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+  <script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="{{site.baseurl}}/assets/js/Valine.min.js"></script> 
 
+    <script type="text/javascript">
     new Valine({
         el: '#comments' ,
         verify: '{{ site.valine.verify }}',
@@ -24,7 +24,6 @@
       });
     }
   </script>
-
-{% endif %}
+  <div id="comments"></div>
 
 
