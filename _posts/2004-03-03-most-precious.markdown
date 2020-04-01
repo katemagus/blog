@@ -3,7 +3,7 @@ layout: post
 title: "最可贵,和小狗一起喝牛奶的时光"
 date: 2004-11-03 13:32:20 +0300
 description: 发表在《视野》 2004 年 11月刊上
-img: drink-milk.jpg # Add image post (optional)
+img: drink-milk.gif # Add image post (optional)
 fig-caption: # Add figcaption (optional)
 tags: [旧作, 发表，视野] # add tag
 ---

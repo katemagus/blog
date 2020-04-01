@@ -3,7 +3,7 @@ layout: post
 title: 如鲠在喉
 date: 2008-01-05 15:51 +0300
 description: 过去的一篇老文章，模仿对象是梁实秋 # Add post description (optional)
-img: fish-bone.png # Add image post (optional)
+img: fish-bone.gif # Add image post (optional)
 fig-caption: # Add figcaption (optional)
 tags: [文学, 旧作] # add tag
 ---

@@ -3,7 +3,7 @@ layout: post
 title: 路人（贰）
 date: 2012-04-01 00:00:00 +0300
 description: 旧作，路人系列# Add post description (optional)
-img: handg.jpg # Add image post (optional)
+img: handg.gif # Add image post (optional)
 fig-caption: # Add figcaption (optional)
 tags: [旧作，路人系列] # add tag
 ---
