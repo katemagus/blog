@@ -1,8 +1,13 @@
 
 <div id="comments"></div> 
  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
-  <script src="{{site.baseurl}}/assets/js/Valine.min.js"></script> 
+ <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
     <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
 	 new Valine()({
         el: '#comments' ,
 		appId: '{{ site.valine.appid }}',
@@ -10,8 +15,8 @@
         verify: '{{ site.valine.verify }}',
         notify: '{{ site.valine.notify }}',    
         placeholder: '{{ site.valine.placeholder }}',
-        avatar:'{{ site.valine.avatar }}',
-		meta: ['nick'] ,
+        avatar: '{{ site.valine.avatar }}',
+		meta: guest,
         pageSize:'{{ site.valine.pageSize }}',
 		visitor: true
     });
