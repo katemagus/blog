@@ -10,6 +10,7 @@
 {% if site.leancloud.enable %}
   <script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
   <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+   <script src="{{site.baseurl}}/assets/js/Valine.min.js"></script> 
   <script>AV.initialize("{{site.leancloud.app_id}}", "{{site.leancloud.app_key}}");</script>
   <script>
     function showHitCount(Counter) {
@@ -105,6 +106,34 @@
               }
             });
           }
+		  
+//comment function------------------
+		  
+	var GUEST = ['nick','mail','link'];
+    var guest = '{{ site.valine.guest_info }}';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: {{ site.valine.verify }},
+        notify: {{ site.valine.notify }},
+        appId: '{{ site.valine.appid }}',
+        appKey: '{{ site.valine.appkey }}',
+        placeholder: '{{ site.valine.placeholder }}',
+        avatar:'{{ site.valine.avatar }}',
+        guest_info:['nick'] ,
+        pageSize:'{{ site.valine.pageSize }}' || 10,
+    });
+    //增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+
+//end comment function ------------------------------------
         },
         error: function(error) {
           console.log('Error:' + error.code + " " + error.message);
