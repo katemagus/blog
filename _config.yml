@@ -23,6 +23,14 @@ social-email: katjaclustter@qq.com # katjaclustter@qq.com
 
 # Tracker
 analytics: # Google Analytics
+leancloud:
+  enable: true
+  app_id: tK3KuoxHD5qNbPetXcqSOJB3-gzGzoHsz
+  app_key: bHS1jho1pkN4Lvs6jDiCULXg
+
+
+
+
 
 # Build Settings
 markdown: kramdown
