@@ -1,7 +1,4 @@
 {% if site.valine.enable %}
-
-
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <script src="{{site.baseurl}}/assets/js/Valine.min.js"></script> 
   <div id="comments"></div>
    <script type="text/javascript">
@@ -18,7 +15,7 @@
         appKey: '{{ site.valine.appkey }}',
         placeholder: '{{ site.valine.placeholder }}',
         avatar:'{{ site.valine.avatar }}',
-        guest_info:['nick'] ,  //评论者只需要提供评论的昵称即可
+        guest_info:['nick'] ,
         pageSize:'{{ site.valine.pageSize }}' || 10,
     });
     //增加以下六行代码去除 power by valine
