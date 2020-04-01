@@ -34,6 +34,15 @@ layout: main
         <span class="leancloud-visitors-count"></span>
        </span>
    {% endif %}
+   
+   {% if site.valine.enable %}
+   
+   {% include valine.html %}
+
+   {% endif %}
+   
+   
+   
 <!-- leancloud end -->
 
         </div>
