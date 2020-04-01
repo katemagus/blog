@@ -1495,7 +1495,7 @@ a.newer-posts:hover {
   color: #263959;
 }
 
-.leancloud-visitors{
+.leancloud_visitors {
     display: inline-block;
     text-decoration: none;
     background-color: #fbd702cf;
