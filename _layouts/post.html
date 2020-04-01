@@ -34,17 +34,7 @@ layout: main
         <span class="leancloud-visitors-count"></span>
        </span>
    {% endif %}
-   
-   {% if site.valine.enable %}
-   
-   {% include valine.html %}
-
-   {% endif %}
-   
-   
-   
 <!-- leancloud end -->
-
         </div>
         <div class="page-tag">
           {% for tag in page.tags %}
@@ -53,5 +43,12 @@ layout: main
         </div>
       </div>
     </div> 
+  
+   {% if site.valine.enable %}
+   
+   {% include valine.html %}
+
+   {% endif %}
+   
   </div> 
 </article>
