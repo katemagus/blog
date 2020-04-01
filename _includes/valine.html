@@ -1,6 +1,5 @@
 {% if site.valine.enable %}
-  <script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="{{site.baseurl}}/assets/js/Valine.min.js"></script> 
+ 
   <div id="comments"></div>
    <script type="text/javascript">
 
@@ -15,6 +14,7 @@
         guest_info: 'nick' ,
         pageSize:'{{ site.valine.pageSize }}',
     });
+
     //增加以下六行代码去除 power by valine
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
