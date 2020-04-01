@@ -28,10 +28,6 @@ leancloud:
   app_id: tK3KuoxHD5qNbPetXcqSOJB3-gzGzoHsz
   app_key: bHS1jho1pkN4Lvs6jDiCULXg
 
-
-
-
-
 # Build Settings
 markdown: kramdown
 plugins:
