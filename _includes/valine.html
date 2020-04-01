@@ -12,9 +12,9 @@
         notify: '{{ site.valine.notify }}',    
         placeholder: '{{ site.valine.placeholder }}',
         avatar:'{{ site.valine.avatar }}',
-		meta:'{{ site.valine.meta }}',
+		meta: ['nick'] ,
         pageSize:'{{ site.valine.pageSize }}',
-		visitor: '{{ site.valine.visitor }}'
+		visitor: true
     });
 
     //增加以下六行代码去除 power by valine

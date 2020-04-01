@@ -34,9 +34,8 @@ valine:
   verify: true 
   placeholder: 说点什么吧！ 
   avatar: mp 
-  meta: ['nick'] # custom comment header
   pageSize: 10  # pagination size
-  visitor: true
+
    
 
 # Build Settings
