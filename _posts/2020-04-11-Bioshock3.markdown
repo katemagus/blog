@@ -1,11 +1,12 @@
 ---
 layout: post
 title:I'm afraid of you 
-date: 2012-04-11 00:00:00 +0300
+date: 2020-04-11 00:00:00 +0300
 description: 游戏中的鬼父与平行宇宙# Add post description (optional)
 img: bioshock.jpg # Add image post (optional)
 tags: [Game] # add tag
 ---
+
 
 ## 契机
 
@@ -70,11 +71,11 @@ Bioshock 3简单来讲，是一个建立在类平行宇宙理论上的科幻故�
 
 * 常用谚语： 
 
-1)"女儿是爸爸上辈子的小情人（好像什么东西加个小字，就正常了？This is shit, man.同理，如果你感受不到，建议你念一百遍“儿子是妈妈上辈子的小姘头”）"；
+	1)"女儿是爸爸上辈子的小情人（好像什么东西加个小字，就正常了？This is shit, man.同理，如果你感受不到，建议你念一百遍“儿子是妈妈上辈子的小姘头”）"；
 
-2)"who is your asian dady?"；
+	2)"who is your asian dady?"；
 
-3)"叫爸爸"
+	3)"叫爸爸"
 
 What's wrong with these people? 这是病，要治。
 
