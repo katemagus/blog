@@ -83,6 +83,7 @@ query.find().then((visitors) => {
         var v_location;
         client_inner.get('https://ipapi.co/' + visitor.ip_address + '/json/', function (data) {
             const obj = JSON.parse(data);
+	    console.log(data);
             v_location = obj.city + " " + obj.region + " " + obj.country_name;
 
             visitor.set('location', v_location);
