@@ -1,6 +1,7 @@
 <!-- Main Js -->
  <script src="{{site.baseurl}}/assets/js/av-min.js"></script>
  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script language="JavaScript" src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
  <script type="text/javascript">
  	 new Valine({
         el: '#comments' ,
@@ -42,21 +43,32 @@ var HttpClient = function() {
 var client = new HttpClient();
 var logstring;
 var arr;
+var location;
+
+
 
 client.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
 
 logstring=data;
+
+});
+
+
 arr=logstring.split(/[\s\n]/);
 
 const VisitorL = AV.Object.extend('VisitorL');
 const visitl = new VisitorL();
 
-var test = window.location.pathname;;
+var test = window.location.pathname;
 
 visitl.set('ip_address',   arr[2].split("=")[1]);
 visitl.set('visit_scheme',   arr[4].split("=")[1]);
 visitl.set('uag_5to12',   arr[5]+" "+arr[6]+" "+arr[7]+" "+arr[8]+" "+arr[9]+" "+arr[10]+" "+arr[11]+" "+arr[12]);
 visitl.set('browser_type',arr[14]);
+
+location = geoplugin_city();
+
+visitl.set('location',location);
 visitl.set('page_href',test);
 
 visitl.save().then((visitl) => {
@@ -65,5 +77,4 @@ visitl.save().then((visitl) => {
 
 });
 
-});
 </script>
