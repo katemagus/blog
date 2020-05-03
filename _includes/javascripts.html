@@ -68,33 +68,11 @@ visitl.set('page_href',test);
 
 visitl.save().then((visitl) => {
   console.log(`saved successful objectId：${visitl.id}`);
-
-var client_inner = new HttpClient();
-
-client_inner.get('https://ipapi.co/'+ arr[2].split("=")[1] +'/json/', function(data) {
-const obj = JSON.parse(data);
-v_location=obj.city+" "+obj.region+" "+obj.country_name;
-const visitl = AV.Object.createWithoutData('VisitorL', visitl.id);
-visitl.set('location',v_location);
-visitl.save().then((visitl) => {
-  console.log(`updated successful objectId：${visitl.id}`);
 }, (error) => {
 
 });
 
-
-}, (error) => {
-
 });
-});
-
-
-
-
-
-});
-
-
 
 
 
