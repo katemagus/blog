@@ -38,6 +38,9 @@ layout: main
 
 
         </div>
+
+{% include javascripts.html %}
+
         <div class="page-tag">
           {% for tag in page.tags %}
             <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">&#35; {{ tag }}</a>
