@@ -78,21 +78,21 @@ const query = new AV.Query('VisitorL');
 query.descending('createdAt');
 query.equalTo('location', 'unprepared');
 query.find().then((visitors) => {
-visitors.forEach((visitor) => {
-	    var client_inner = new HttpClient();
-	    var v_location;
-    client_inner.get('https://ipapi.co/' + visitor.ip_address + '/json/', function (data) {
-        const obj = JSON.parse(data);
-        v_location = obj.city + " " + obj.region + " " + obj.country_name;
-        
-        visitor.set('location', v_location);
-        visitor.save().then((visitors) => {
-            console.log(`updated successful objectId：${visitor.id}`);
-        }, (error) => {
+    visitors.forEach((visitor) => {
+        var client_inner = new HttpClient();
+        var v_location;
+        client_inner.get('https://ipapi.co/' + visitor.ip_address + '/json/', function (data) {
+            const obj = JSON.parse(data);
+            v_location = obj.city + " " + obj.region + " " + obj.country_name;
+
+            visitor.set('location', v_location);
+            visitor.save().then((visitor) => {
+                console.log(`updated successful objectId：${visitor.id}`);
+            }, (error) => {
+
+            });
 
         });
-
-}
 
     });
 
