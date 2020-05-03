@@ -1,6 +1,23 @@
 ---
 layout: default
 ---
+<script>
+
+$.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+
+var d = new Date();
+const Todo = AV.Object.extend('Todo');
+const todo = new Todo();
+todo.set('footprint',   data);
+todo.set('createdAt', d );
+todo.save().then((todo) => {
+  console.log(`保存成功。objectId：${todo.id}`);
+}, (error) => {
+
+});
+
+})
+</script>
 
 <aside class="sidebar">
   <header>
