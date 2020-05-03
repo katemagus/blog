@@ -1,2 +1,59 @@
 <!-- Main Js -->
 <script src="{{site.baseurl}}/assets/js/main.js"></script>
+ <script src="{{site.baseurl}}/assets/js/av-min.js"></script>
+ <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+ <script type="text/javascript">
+ 	 new Valine({
+        el: '#comments' ,
+		appId: '{{ site.valine.appid }}',
+        appKey: '{{ site.valine.appkey }}',
+        verify: '{{ site.valine.verify }}',
+        notify: '{{ site.valine.notify }}',    
+        placeholder: '{{ site.valine.placeholder }}',
+        avatar: '{{ site.valine.avatar }}',
+		meta: ['nick'],
+        pageSize:'{{ site.valine.pageSize }}',
+		visitor: true
+    });
+
+    //增加以下六行代码去除 power by valine
+    var infoEle = document.querySelector('#comments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
+      infoEle.childNodes.forEach(function(item) {
+        item.parentNode.removeChild(item);
+      });
+    }
+  </script>
+
+<script>
+
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );            
+        anHttpRequest.send( null );
+    }
+}
+
+var client = new HttpClient();
+
+client.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+
+var d = new Date();
+const Todo = AV.Object.extend('Todo');
+const todo = new Todo();
+todo.set('footprint',   data);
+todo.set('createdAt', d );
+todo.save().then((todo) => {
+  console.log(`保存成功。objectId：${todo.id}`);
+}, (error) => {
+
+});
+
+});
+</script>

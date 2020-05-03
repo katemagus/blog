@@ -1,28 +1,5 @@
 
 <div id="comments" style="display:block;width:100%;padding:10px;" ></div> 
- <script src="{{site.baseurl}}/assets/js/av-min.js"></script>
- <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-    <script type="text/javascript">
- 	 new Valine({
-        el: '#comments' ,
-		appId: '{{ site.valine.appid }}',
-        appKey: '{{ site.valine.appkey }}',
-        verify: '{{ site.valine.verify }}',
-        notify: '{{ site.valine.notify }}',    
-        placeholder: '{{ site.valine.placeholder }}',
-        avatar: '{{ site.valine.avatar }}',
-		meta: ['nick'],
-        pageSize:'{{ site.valine.pageSize }}',
-		visitor: true
-    });
 
-    //增加以下六行代码去除 power by valine
-    var infoEle = document.querySelector('#comments .info');
-    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
-      infoEle.childNodes.forEach(function(item) {
-        item.parentNode.removeChild(item);
-      });
-    }
-  </script>
-
+   
 
