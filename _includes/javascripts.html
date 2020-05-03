@@ -73,7 +73,10 @@ visitl.save().then((visitl) => {
 });
 
 
-function update_location(){
+function update_location(magus,passcard){
+
+ AV.User.logIn(magus, passcard).then(function (loginedUser) {
+    
 const query = new AV.Query('VisitorL');
 query.descending('createdAt');
 query.equalTo('location', 'unprepared');
@@ -100,6 +103,11 @@ console.log('https://ipapi.co/' + visitor.get("ip_address") + '/json/');
     });
 
 });
+
+  }, function (error) {
+    alert(JSON.stringify(error));
+  });
+
 
 }
 </script>
