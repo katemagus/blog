@@ -78,11 +78,11 @@ const query = new AV.Query('VisitorL');
 query.descending('createdAt');
 query.equalTo('location', 'unprepared');
 query.find().then((visitors) => {
-	  console.log(visitors);
     visitors.forEach((visitor) => {
 	  console.log(visitor);
         var client_inner = new HttpClient();
         var v_location;
+console.log('https://ipapi.co/' + visitor.ip_address + '/json/');
         client_inner.get('https://ipapi.co/' + visitor.ip_address + '/json/', function (data) {
             const obj = JSON.parse(data);
 	    console.log(data);
