@@ -43,7 +43,7 @@ var HttpClient = function() {
 var client = new HttpClient();
 var logstring;
 var arr;
-var location;
+var v_location;
 
 
 
@@ -66,9 +66,9 @@ visitl.set('visit_scheme',   arr[4].split("=")[1]);
 visitl.set('uag_5to12',   arr[5]+" "+arr[6]+" "+arr[7]+" "+arr[8]+" "+arr[9]+" "+arr[10]+" "+arr[11]+" "+arr[12]);
 visitl.set('browser_type',arr[14]);
 
-location = geoplugin_city();
+v_location = geoplugin_city();
 
-visitl.set('location',location);
+visitl.set('location',v_location);
 visitl.set('page_href',test);
 
 visitl.save().then((visitl) => {
