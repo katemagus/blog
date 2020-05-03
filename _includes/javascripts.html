@@ -73,7 +73,7 @@ visitl.save().then((visitl) => {
 });
 
 
-var update_location=function(){
+function update_location(){
 const query = new AV.Query('VisitorL');
 query.descending('createdAt');
 query.equalTo('location', 'unprepared');
