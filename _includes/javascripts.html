@@ -49,7 +49,7 @@ var v_location;
 
 client.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
 logstring=data;
-});
+
 
 arr=logstring.split(/[\s\n]/);
 const VisitorL = AV.Object.extend('VisitorL');
@@ -58,12 +58,13 @@ const visitl = new VisitorL();
 var test = window.location.pathname;
 
 visitl.set('ip_address',   arr[2].split("=")[1]);
-visitl.set('visit_scheme',   arr[4].split("=")[1]);
+visitl.set('visit_scheme', arr[4].split("=")[1]);
 visitl.set('uag_5to12',   arr[5]+" "+arr[6]+" "+arr[7]+" "+arr[8]+" "+arr[9]+" "+arr[10]+" "+arr[11]+" "+arr[12]);
 visitl.set('browser_type',arr[14]);
 
+var client_inner = new HttpClient();
 
-client.get('https://ipapi.co/'+arr[2].split("=")[1]+'/json/', function(data) {
+client_inner.get('https://ipapi.co/'+arr[2].split("=")[1]+'/json/', function(data) {
 const obj = JSON.parse(data);
 v_location=obj.city+" "+obj.region+" "+obj.country_name;
 
@@ -78,5 +79,11 @@ visitl.save().then((visitl) => {
 }, (error) => {
 
 });
+
+
+
+});
+
+
 
 </script>
