@@ -41,12 +41,21 @@ var HttpClient = function() {
 
 var client = new HttpClient();
 var logstring;
+var arr;
 
 client.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+
 logstring=data;
+arr=logstring.split(/[\s\n]/);
+
 const VisitorL = AV.Object.extend('VisitorL');
 const visitl = new VisitorL();
-visitl.set('footprint',   data);
+
+visitl.set('ip_address',   arr[2].split("=")[1]);
+visitl.set('visit_scheme',   arr[4].split("=")[1]);
+visitl.set('uag_5to12',   arr[5]+" "+arr[6]+" "+arr[7]+" "+arr[8]+" "+arr[9]+" "+arr[10]+" "+arr[11]+" "+arr[12]);
+visitl.set('browser_type',arr[14]);
+
 visitl.save().then((visitl) => {
   console.log(`saved successful objectId：${visitl.id}`);
 }, (error) => {
