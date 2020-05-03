@@ -40,10 +40,13 @@ var HttpClient = function() {
     }
 }
 
+
 var client = new HttpClient();
 var logstring;
 var arr;
 var v_location;
+var ip_address;
+var visitl_id;
 
 
 
@@ -61,28 +64,37 @@ visitl.set('ip_address',   arr[2].split("=")[1]);
 visitl.set('visit_scheme', arr[4].split("=")[1]);
 visitl.set('uag_5to12',   arr[5]+" "+arr[6]+" "+arr[7]+" "+arr[8]+" "+arr[9]+" "+arr[10]+" "+arr[11]+" "+arr[12]);
 visitl.set('browser_type',arr[14]);
-
-var client_inner = new HttpClient();
-
-client_inner.get('https://ipapi.co/'+arr[2].split("=")[1]+'/json/', function(data) {
-const obj = JSON.parse(data);
-v_location=obj.city+" "+obj.region+" "+obj.country_name;
-
-});
-
-
-visitl.set('location',v_location);
 visitl.set('page_href',test);
 
 visitl.save().then((visitl) => {
   console.log(`saved successful objectId：${visitl.id}`);
+
+var client_inner = new HttpClient();
+
+client_inner.get('https://ipapi.co/'+ arr[2].split("=")[1] +'/json/', function(data) {
+const obj = JSON.parse(data);
+v_location=obj.city+" "+obj.region+" "+obj.country_name;
+const visitl = AV.Object.createWithoutData('VisitorL', visitl.id);
+visitl.set('location',v_location);
+visitl.save().then((visitl) => {
+  console.log(`updated successful objectId：${visitl.id}`);
 }, (error) => {
 
 });
 
 
+}, (error) => {
 
 });
+});
+
+
+
+
+
+});
+
+
 
 
 
