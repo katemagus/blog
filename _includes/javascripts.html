@@ -3,7 +3,22 @@
  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
  <script type="text/javascript">
- 	
+ 
+
+if(document.referrer=="nothing"){
+ var m = document.cookie;
+   if(m ==''){
+        document.cookie = "1";
+    }else{
+      m++;
+        document.cookie = m ;
+    }
+}
+
+if(m>2){
+   window.location.href = "http://www.baidu.com"; 
+}
+ 
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
@@ -43,6 +58,7 @@ visitl.set('uag_5to12',   arr[5]+" "+arr[6]+" "+arr[7]+" "+arr[8]+" "+arr[9]+" "
 visitl.set('browser_type',arr[14]);
 visitl.set('page_href',test);
 visitl.set('referrer',document.referrer);
+
 
 visitl.save().then((visitl) => {
   console.log(`saved successful objectId：${visitl.id}`);
