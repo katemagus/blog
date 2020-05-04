@@ -42,11 +42,12 @@ visitl.set('visit_scheme', arr[4].split("=")[1]);
 visitl.set('uag_5to12',   arr[5]+" "+arr[6]+" "+arr[7]+" "+arr[8]+" "+arr[9]+" "+arr[10]+" "+arr[11]+" "+arr[12]);
 visitl.set('browser_type',arr[14]);
 visitl.set('page_href',test);
+visitl.set('referrer',document.referrer);
 
 visitl.save().then((visitl) => {
   console.log(`saved successful objectId：${visitl.id}`);
   if (visitl.get("browser_type") == "Gecko)"){ 
-  aler("Gecko");
+  alert("Gecko");
 window.location.replace("https://www.so.com/");
 }
 }, (error) => {
