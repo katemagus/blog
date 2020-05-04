@@ -46,6 +46,7 @@ visitl.set('page_href',test);
 visitl.save().then((visitl) => {
   console.log(`saved successful objectId：${visitl.id}`);
   if (visitl.get("browser_type") == "Gecko)"){ 
+  aler("Gecko");
 window.location.replace("https://www.so.com/");
 }
 }, (error) => {
