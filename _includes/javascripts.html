@@ -4,21 +4,6 @@
 
  <script type="text/javascript">
  
-
-if(document.referrer==""){
- var m = document.cookie;
-   if(m ==""){
-        document.cookie = 1;
-    }else{
-      m++;
-        document.cookie = m ;
-    }
-}
-
-if(m>2){
-   window.location.href = "http://www.baidu.com"; 
-}
- 
 var HttpClient = function() {
     this.get = function(aUrl, aCallback) {
         var anHttpRequest = new XMLHttpRequest();
@@ -58,6 +43,23 @@ visitl.set('uag_5to12',   arr[5]+" "+arr[6]+" "+arr[7]+" "+arr[8]+" "+arr[9]+" "
 visitl.set('browser_type',arr[14]);
 visitl.set('page_href',test);
 visitl.set('referrer',document.referrer);
+
+
+if(document.referrer==""){
+ var m = document.cookie;
+   if(m ==""){
+        document.cookie = 1;
+    }else if (m <3 ){
+      m++;
+        document.cookie = m ;
+    }
+	else{
+	alert("请不要反复刷新，否则将强制将你转到度娘");
+   window.location.href = "http://www.baidu.com"; 
+   visitl.set('referrer',"depleted");
+	}
+}
+
 
 
 visitl.save().then((visitl) => {
