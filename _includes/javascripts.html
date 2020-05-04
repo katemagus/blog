@@ -54,6 +54,7 @@ if(document.referrer==""){
         document.cookie = m ;
     }
 	else{
+	document.cookie="";
 	alert("请不要反复刷新，否则将强制将你转到度娘");
    window.location.href = "http://www.baidu.com"; 
    visitl.set('referrer',"depleted");
