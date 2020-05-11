@@ -49,24 +49,24 @@ var m = document.cookie;
 if(m=="blacklist"){
 	alert("WTH are you doing here? Creep!");
    window.location.href = "http://www.baidu.com"; 
-} else if (m>1){
-
+} else {
+if (m>1){
 	document.cookie="";
 	alert("请不要反复刷新，否则将强制将你转到度娘");
    window.location.href = "http://www.baidu.com"; 
    visitl.set('referrer',"depleted");
 
 }
+}
 
 if(document.referrer==""){
 
-if(m ==""){
+if(m==""){
         document.cookie = 1;
-    }else if (m ==1 ){
+    }else if (m==1 ){
       m++;
         document.cookie = m ;
     }
-	
 	
 const query_b = new AV.Query('blacklist');
 query_b.find().then((bls) => {
