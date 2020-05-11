@@ -47,7 +47,7 @@ visitl.set('referrer',document.referrer);
 const query_b = new AV.Query('blacklist');
 query_b.find().then((bl) => {
     visitors.forEach((bl) => {
-	if(arr[2].split("=")[1].includes(bl.get("crawler_mac"))){
+	if(visitl.get("ip_address").includes(bl.get("crawler_mac"))){
 	alert("WTH are you doing here? Creep!");
    window.location.href = "http://www.baidu.com"; 
 }
