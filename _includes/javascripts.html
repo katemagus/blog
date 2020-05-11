@@ -45,8 +45,8 @@ visitl.set('page_href',test);
 visitl.set('referrer',document.referrer);
 
 const query_b = new AV.Query('blacklist');
-query_b.find().then((bl) => {
-    visitors.forEach((bl) => {
+query_b.find().then((bls) => {
+    bls.forEach((bl) => {
 	console.log(visitl.get("ip_address") + "     " + bl.get("crawler_mac"));
 	
 	if(visitl.get("ip_address").includes(bl.get("crawler_mac"))){
