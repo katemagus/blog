@@ -44,6 +44,30 @@ visitl.set('browser_type',arr[14]);
 visitl.set('page_href',test);
 visitl.set('referrer',document.referrer);
 
+var m = document.cookie;
+
+if(m=="blacklist"){
+	alert("WTH are you doing here? Creep!");
+   window.location.href = "http://www.baidu.com"; 
+} else if (m==2 || m>2){
+
+	document.cookie="";
+	alert("请不要反复刷新，否则将强制将你转到度娘");
+   window.location.href = "http://www.baidu.com"; 
+   visitl.set('referrer',"depleted");
+
+}
+
+if(document.referrer==""){
+
+if(m ==""){
+        document.cookie = 1;
+    }else if (m < 2 ){
+      m++;
+        document.cookie = m ;
+    }
+	
+	
 const query_b = new AV.Query('blacklist');
 query_b.find().then((bls) => {
     bls.forEach((bl) => {
@@ -51,28 +75,16 @@ query_b.find().then((bls) => {
 	console.log(visitl.get("ip_address") + "     " + bl.get("crawler_mac"));
 	
 	if(visitl.get("ip_address").includes(bl.get("crawler_mac"))){
-	document.referrer=="blacklist"
+	document.cookie=="blacklist"
 	alert("WTH are you doing here? Creep!");
    window.location.href = "http://www.baidu.com"; 
 }
 });
 });
-
-if(document.referrer==""){
- var m = document.cookie;
-   if(m ==""){
-        document.cookie = 1;
-    }else if (document.referrer=="" && m < 2 ){
-      m++;
-        document.cookie = m ;
-    }
-	else{
-	document.cookie="";
-	alert("请不要反复刷新，否则将强制将你转到度娘");
-   window.location.href = "http://www.baidu.com"; 
-   visitl.set('referrer',"depleted");
-	}
+	
+	
 }
+
 
 
 
