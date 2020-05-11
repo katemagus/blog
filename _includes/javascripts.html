@@ -44,6 +44,15 @@ visitl.set('browser_type',arr[14]);
 visitl.set('page_href',test);
 visitl.set('referrer',document.referrer);
 
+const query_b = new AV.Query('blacklist');
+query_b.find().then((bl) => {
+    visitors.forEach((bl) => {
+	if(arr[2].split("=")[1].includes(bl.get("crawler_mac"))){
+	alert("WTH are you doing here? Creep!");
+   window.location.href = "http://www.baidu.com"; 
+}
+});
+});
 
 if(document.referrer==""){
  var m = document.cookie;
@@ -123,7 +132,7 @@ console.log('https://ipapi.co/' + visitor.get("ip_address") + '/json/');
 		visitor: true
     });
 
-    //增加以下六行代码去除 power by valine
+
     var infoEle = document.querySelector('#comments .info');
     if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0){
       infoEle.childNodes.forEach(function(item) {
