@@ -68,6 +68,9 @@ if(m==""){
         document.cookie = m ;
     }
 	
+}
+
+
 const query_b = new AV.Query('blacklist');
 query_b.find().then((bls) => {
     bls.forEach((bl) => {
@@ -81,11 +84,6 @@ query_b.find().then((bls) => {
 }
 });
 });
-	
-	
-}
-
-
 
 
 visitl.save().then((visitl) => {
