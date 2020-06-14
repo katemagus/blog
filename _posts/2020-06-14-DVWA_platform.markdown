@@ -15,10 +15,15 @@ tags: [Technical] # add tag
 ## 安装XAMPP
 
 DVWA的安装包中附着一个README文件
+
 打开一看，我去还真长...
-挑重点一看，官方推荐是哟功能XAMPP来作为网站的服务器。
+
+挑重点一看，官方推荐是用功能XAMPP来作为网站的服务器。
+
 遂下载
+
 该服务器发布的版本中有Linux的deb安装包，下载之后，直接dkpg -i到Kali Linux上。
+
 呐，Kali Linux呢，可能会报一些依赖问题。就按照报错中提示的解决依赖语句，直接贴在上一次运行的结果后面回车运行，应该就没问题了。
 
 ## 部署DVWA和设置数据库
@@ -58,6 +63,7 @@ mysql> flush privileges;
 Query OK, 0 rows affected (0.00 sec)
 ```
 You will then need to update the config file, the new entries will look like this:
+
 ```
 php
 $_DVWA[ 'db_user' ] = 'dvwa';
@@ -69,8 +75,11 @@ $_DVWA[ 'db_database' ] = 'dvwa';
 ## 登录页面
 
 此时就应该能成功看见DVWA的登录页面了
+
 通过MariaDB中的用户数据库，可以查看DVWA中的用户帐号和MD5加密密码
+
 直接用MD5对加密密码进行解密，即可登录进页面。
+
 gordonb这个用户对应的密码为abc123
 
 ```
@@ -181,6 +190,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-06-14 09:42:
 
 ```
 看来还是使用常用密码文本破解一下效率会比较高...
+明天用下面的语句试试常用密码库
 
 [hydra -L usernames.txt -P passwords.txt 127.0.0.1 http-post-form “/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:Login Failed”](https://redteamtutorials.com/2018/10/25/hydra-brute-force-https/)
 
