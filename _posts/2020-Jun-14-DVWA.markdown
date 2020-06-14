@@ -3,7 +3,7 @@ layout: post
 title: "DVWA 安装"
 date: 2020-06-14 16:01:00 +0800
 description: DVWA 安装中遇到的坑 # Add post description (optional)
-img:  # Add image post (optional)
+img:  dvwa.png # Add image post (optional)
 tags: [Technical] # add tag
 ---
 
