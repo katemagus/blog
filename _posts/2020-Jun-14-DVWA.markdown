@@ -33,37 +33,37 @@ DVWA的安装包中附着一个README文件
 systemctl start mariadb
 * 按照README的说明进行数据库的设置。原文如下：
 
-To set up the database, simply click on the `Setup DVWA` button in the main menu, then click on the `Create / Reset Database` button. This will create / reset the database for you with some data in.
+To set up the database, simply click on the Setup DVWA button in the main menu, then click on the `Create / Reset Database` button. This will create / reset the database for you with some data in.
 
-If you receive an error while trying to create your database, make sure your database credentials are correct within `./config/config.inc.php`. *This differs from config.inc.php.dist, which is an example file.*
+If you receive an error while trying to create your database, make sure your database credentials are correct within `./config/config.inc.php`. *This differs from `config.inc.php.dist`, which is an example file.*
 
 The variables are set to the following by default:
-
-`php`
-`$_DVWA[ 'db_user' ] = 'root';`
-`$_DVWA[ 'db_password' ] = 'p@ssw0rd';`
-`$_DVWA[ 'db_database' ] = 'dvwa';`
-
+```
+php
+$_DVWA[ 'db_user' ] = 'root';
+$_DVWA[ 'db_password' ] = 'p@ssw0rd';
+$_DVWA[ 'db_database' ] = 'dvwa';
+```
 
 Note, if you are using MariaDB rather than MySQL (MariaDB is default in Kali), then you can't use the database root user, you must create a new database user. To do this, connect to the database as the root user then use the following commands:
+```
+mysql
+mysql> create database dvwa;
+Query OK, 1 row affected (0.00 sec)
 
-`mysql`
-`mysql> create database dvwa;`
-`Query OK, 1 row affected (0.00 sec)`
+mysql> grant all on dvwa.* to dvwa@localhost identified by 'SuperSecretPassword99';
+Query OK, 0 rows affected, 1 warning (0.01 sec)
 
-`mysql> grant all on dvwa.* to dvwa@localhost identified by 'SuperSecretPassword99';`
-`Query OK, 0 rows affected, 1 warning (0.01 sec)`
-
-`mysql> flush privileges;`
-`Query OK, 0 rows affected (0.00 sec)`
-
+mysql> flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+```
 You will then need to update the config file, the new entries will look like this:
-
-`php`
-`$_DVWA[ 'db_user' ] = 'dvwa';`
-`$_DVWA[ 'db_password' ] = 'SuperSecretPassword99';`
-`$_DVWA[ 'db_database' ] = 'dvwa';`
-
+```
+php
+$_DVWA[ 'db_user' ] = 'dvwa';
+$_DVWA[ 'db_password' ] = 'SuperSecretPassword99';
+$_DVWA[ 'db_database' ] = 'dvwa';
+```
 * 进行好上面的设置之后，在DVWA的页面上点击数据库设置按钮进行数据库设置。
 
 #登录页面
@@ -72,7 +72,7 @@ You will then need to update the config file, the new entries will look like thi
 通过MariaDB中的用户数据库，可以查看DVWA中的用户帐号和MD5加密密码
 直接用MD5对加密密码进行解密，即可登录进页面。
 gordonb这个用户对应的密码为abc123
-
+```
 MariaDB [(none)]> use dvwa
 Reading table information for completion of table and column names
 You can turn off this feature to get a quicker startup with -A
@@ -98,5 +98,5 @@ MariaDB [dvwa]> select * from users;
 |       5 | Bob        | Smith     | smithy  | 5f4dcc3b5aa765d61d8327deb882cf99 | /dvwa/hackable/users/smithy.jpg  | 2020-06-13 11:39:19 |            0 |
 +---------+------------+-----------+---------+----------------------------------+----------------------------------+---------------------+--------------+
 5 rows in set (0.001 sec)
-
+```
 
